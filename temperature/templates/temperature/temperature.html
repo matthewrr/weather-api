@@ -1,0 +1,19 @@
+<form action = "" method = "POST">
+    {% csrf_token %}
+    <label for="Zip Code">Zipcode: </label>
+    <input id="zip_code" type="text" name="zip_code">
+    <input type="submit" value="OK">
+</form>
+
+{% for item in response.properties.periods %}
+    <p>
+        <br>
+        Time: {{ item.name }} <br>
+        Temperature: {{ item.temperature }}F <br>
+        Wind Speed: {{ item.windSpeed }}, {{ item.windDirection }} <br>
+        Short Forecast: {{ item.shortForecast }} <br>
+        Long Forecast: {{ item.detailedForecast }} <br>
+        __________
+    </p>
+
+{% endfor %}
